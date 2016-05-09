@@ -7,7 +7,7 @@
         android:id="@+id/linear_seller_qr"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:background="#ffffff"
+        android:background="#f9f3ea"
         android:layout_height="300dp"
         android:gravity="center"
         android:layout_gravity="center_horizontal">

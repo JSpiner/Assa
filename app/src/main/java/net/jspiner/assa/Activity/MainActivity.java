@@ -16,7 +16,6 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.facebook.Profile;
@@ -257,7 +256,7 @@ public class MainActivity extends AppCompatActivity {
         void init(){
 
             Picasso.with(getBaseContext())
-                    .load(R.drawable.sejong)
+                    .load(R.drawable.sejongbg)
                     .fit()
                     .into(imvRow);
         }

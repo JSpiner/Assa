@@ -52,8 +52,6 @@ public class OrderActivity extends AppCompatActivity {
     Toolbar toolbar;
     @Bind(R.id.tv_toolbar_title)
     TextView tvTitle;
-    @Bind(R.id.searchView)
-    SearchView searchView;
     @Bind(R.id.layout_order)
     LinearLayout layout;
     @Bind(R.id.sv_order)
@@ -323,10 +321,7 @@ public class OrderActivity extends AppCompatActivity {
             }
         });
 
-        tvTitle.setText("예약하러 가기");
-
-        searchView.setVisibility(View.GONE);
-
+        tvTitle.setText("옵션 선택");
 
     }
 

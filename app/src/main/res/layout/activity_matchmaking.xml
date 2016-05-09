@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#f9f3ea"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/menu_toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_marginTop="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#2f2f2f"
+            android:textSize="20sp"
+            android:text="그룹을 형성중입니다."/>
+
+        <LinearLayout
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/profile_image"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/sample1"
+                app:civ_border_color="#2f2f2f"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="60dp"
+                android:layout_marginLeft="10dp"
+                android:layout_height="60dp"
+                android:src="@drawable/profile"
+                app:civ_border_color="#2f2f2f"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="60dp"
+                android:layout_marginLeft="10dp"
+                android:layout_height="60dp"
+                android:src="@drawable/profile"
+                app:civ_border_color="#2f2f2f"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="60dp"
+                android:layout_marginLeft="10dp"
+                android:layout_height="60dp"
+                android:src="@drawable/profile"
+                app:civ_border_color="#2f2f2f"/>
+
+        </LinearLayout>
+
+        <com.victor.loading.newton.NewtonCradleLoading
+            android:id="@+id/newton_cradle_loading"
+            android:layout_width="wrap_content"
+            android:backgroundTint="#2f2f2f"
+            android:layout_height="150dp"
+            android:layout_centerInParent="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:textColor="#2f2f2f"
+            android:id="@+id/tv_match_wait"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"
+            android:text="현재 대기시간 03:00"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:textColor="#2f2f2f"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"
+            android:text="예상 대기시간 05:18"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>
