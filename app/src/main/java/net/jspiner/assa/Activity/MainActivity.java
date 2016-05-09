@@ -16,6 +16,7 @@ import net.jspiner.assa.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Copyright 2016 JSpiner. All rights reserved.
@@ -35,9 +36,11 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     @Bind(R.id.bg_loading)
     LinearLayout bgLoading;
+    private ActionBarDrawerToggle toggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        this.overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -56,9 +59,19 @@ public class MainActivity extends AppCompatActivity {
         public void handleMessage(Message msg) {
             bgLoading.setVisibility(View.GONE);
             initToolbar();
-            initFragment();
+            initLayout();
         }
     };
+
+    @OnClick(R.id.btn_next)
+    void onNextClick(){
+        Intent intent = new Intent(MainActivity.this, OrderActivity.class);
+        startActivity(intent);
+    }
+
+    void initLayout(){
+
+    }
 
     void initToolbar(){
 
@@ -96,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });*/
+        /*
         ((LinearLayout)findViewById(R.id.lv_drawer_lv1)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -104,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
 
             }
-        });
+        });*/
     }
 
 

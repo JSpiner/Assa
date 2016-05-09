@@ -1,5 +1,6 @@
 package net.jspiner.assa.Activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,11 +17,11 @@ import net.jspiner.assa.R;
  * @since 2016. 5. 9.
  */
 
-public class SplashActivity extends AppCompatActivity {
-
+public class SplashActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+//        this.overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
@@ -42,8 +43,14 @@ public class SplashActivity extends AppCompatActivity {
             }
         };
 
-        handler.sendEmptyMessageDelayed(0,2000);
+        handler.sendEmptyMessageDelayed(0, 2000);
 
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
 
 }
