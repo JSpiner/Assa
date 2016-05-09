@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -24,6 +25,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import net.jspiner.assa.Adapter.CalendarAdapter;
+import net.jspiner.assa.Adapter.TypeAdapter;
 import net.jspiner.assa.Model.CalData;
 import net.jspiner.assa.R;
 import net.jspiner.assa.View.ExpandableGridView;
@@ -177,6 +179,21 @@ public class OrderActivity extends AppCompatActivity {
     }
 
     void initCalendar(){
+
+        View v = inflater.inflate(R.layout.item_card_type,null);
+        layout.addView(v);
+        v.startAnimation(animset);
+
+
+        ((ViewPager)v.findViewById(R.id.pager_seller_near)).setAdapter(new TypeAdapter(getBaseContext()));
+
+        ((LinearLayout)v.findViewById(R.id.btn_card_accept)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                initTime();
+            }
+        });
+        /*
         View v = inflater.inflate(R.layout.item_card_calendar,null);
         layout.addView(v);
         v.startAnimation(animset);
@@ -248,11 +265,6 @@ public class OrderActivity extends AppCompatActivity {
 
                 CalData selectedDate = ((CalData) calendarAdapter.getItem(position));
 
-/*
-                MyOfficeInfoActivity.scoreYear = selectedDate.getYear();
-                MyOfficeInfoActivity.scoreMonth = selectedDate.getMonth();
-                MyOfficeInfoActivity.scoreDay = selectedDate.getDay();
-*/
                 Log.d(TAG, "date : " + selectedDate.getYear() + ":" + selectedDate.getMonth() + ":" + selectedDate.getDay());
 
                 calendarAdapter.notifyDataSetChanged();
@@ -263,6 +275,7 @@ public class OrderActivity extends AppCompatActivity {
         updateCalendar();
 
         delayHandler.sendEmptyMessageDelayed(0, 20);
+        */
     }
 
     void initTime(){
@@ -335,7 +348,7 @@ public class OrderActivity extends AppCompatActivity {
         for(int i=0;i<5;i++){
             persons[i].setVisibility(View.GONE);
         }
-        for(int i=0;i<peopleCount;i++){
+        for (int i=0;i<peopleCount;i++){
             persons[i].setVisibility(View.VISIBLE);
         }
         tvPerson.setText(peopleCount+"명");

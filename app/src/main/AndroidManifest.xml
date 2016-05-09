@@ -26,6 +26,11 @@
             android:screenOrientation="portrait">
         </activity>
 
+        <activity android:name=".Activity.MatchMakingActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:screenOrientation="portrait">
+        </activity>
+
         <activity android:name="com.facebook.FacebookActivity"
             android:configChanges=
                 "keyboard|keyboardHidden|screenLayout|screenSize|orientation"

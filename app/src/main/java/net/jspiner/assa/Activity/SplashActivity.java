@@ -82,22 +82,23 @@ public class SplashActivity extends Activity {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
                         // App code
-                        if(Profile.getCurrentProfile() == null) {
+                        Profile profile = Profile.getCurrentProfile();
+                        if(profile == null) {
                             mProfileTracker = new ProfileTracker() {
                                 @Override
-                                protected void onCurrentProfileChanged(Profile profile, Profile profile2) {
+                                protected void onCurrentProfileChanged(Profile profile3, Profile profile2) {
                                     // profile2 is the new profile
-                                    Log.v("facebook - profile", profile2.getFirstName());
+                                    Log.v("facebook - profile2", profile2.getFirstName());
                                     mProfileTracker.stopTracking();
                                 }
                             };
                             mProfileTracker.startTracking();
                         }
                         else {
-                            Profile profile = Profile.getCurrentProfile();
+                            profile = Profile.getCurrentProfile();
                             Log.v("facebook - profile", profile.getFirstName());
                         }
-                        Profile profile = Profile.getCurrentProfile();
+                        profile = Profile.getCurrentProfile();
 
                         Log.d(TAG, "login success");
                         Log.d(TAG,"profile : "+new Gson().toJson(profile));
@@ -156,14 +157,13 @@ public class SplashActivity extends Activity {
             @Override
             public void handleMessage(Message msg) {
 
-                /*
+
                 if(AccessToken.getCurrentAccessToken()!=null) {
                     Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                     startActivity(intent);
 
-
                     finish();
-                }*/
+                }
 
             }
         };

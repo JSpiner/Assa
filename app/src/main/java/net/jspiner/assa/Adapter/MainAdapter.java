@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.facebook.Profile;
 
+import net.jspiner.assa.Activity.OrderActivity;
 import net.jspiner.assa.Model.SellerModel;
 import net.jspiner.assa.R;
 
@@ -73,7 +74,7 @@ public class MainAdapter extends BaseAdapter {
                     convertView = inflater.inflate(R.layout.item_seller_review, null);
                     break;
                 case 3:
-                    convertView = inflater.inflate(R.layout.item_seller_header, null);
+                    convertView = inflater.inflate(R.layout.item_seller_proc, null);
                     break;
 
             }
@@ -85,6 +86,15 @@ public class MainAdapter extends BaseAdapter {
             if(position==0) binder.tvHeaderText.setText(
                     Profile.getCurrentProfile().getName()+"님, 안녕하세요!"
             );
+            if(position==3){
+                convertView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(context, OrderActivity.class);
+                        context.startActivity(intent);
+                    }
+                });
+            }
 
 
         } finally {

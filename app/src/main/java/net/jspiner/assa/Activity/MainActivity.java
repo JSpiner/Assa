@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -69,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
 
     MainAdapter adapter;
 
+    @Bind(R.id.fab_room_chat)
+    FloatingActionButton btnChat;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
@@ -76,6 +80,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         init();
+    }
+
+    @OnClick(R.id.fab_room_chat)
+    void onChatClick(){
+        Intent intent = new Intent(MainActivity.this, OrderActivity.class);
+        startActivity(intent);
     }
 
     void init(){
