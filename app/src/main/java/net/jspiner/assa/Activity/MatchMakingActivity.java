@@ -9,10 +9,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.Profile;
+import com.squareup.picasso.Picasso;
 import com.victor.loading.newton.NewtonCradleLoading;
 
 import net.jspiner.assa.R;
@@ -54,6 +56,9 @@ public class MatchMakingActivity extends AppCompatActivity {
     @Bind(R.id.newton_cradle_loading)
     NewtonCradleLoading newtonCradleLoading;
 
+    @Bind(R.id.profile_image)
+    ImageView imvProfile;
+
     int time = 0;
 
     Handler timeHandler = new Handler(){
@@ -79,12 +84,24 @@ public class MatchMakingActivity extends AppCompatActivity {
     void init(){
         ButterKnife.bind(this);
 
+        Picasso.with(getBaseContext())
+                .load(Profile.getCurrentProfile().getProfilePictureUri(400,400).toString())
+                .fit()
+                .into(imvProfile);
         newtonCradleLoading.start();
         newtonCradleLoading.setLoadingColor(Color.BLACK);
 
         initToolbar();
         initSocket();
     }
+
+    Handler toastHandler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            Toast.makeText(getBaseContext(),"매칭이 완료되었습니다.",Toast.LENGTH_LONG).show();
+            super.handleMessage(msg);
+        }
+    };
 
     void initSocket(){
         try {
@@ -109,7 +126,7 @@ public class MatchMakingActivity extends AppCompatActivity {
                     public void call(Object... args) {
                         Intent intent = new Intent(MatchMakingActivity.this, ChatActivity.class);
                         startActivity(intent);
-                        Toast.makeText(getBaseContext(),"매칭이 완료되었습니다.",Toast.LENGTH_LONG).show();
+                        timeHandler.sendEmptyMessageDelayed(0,0);
 
                     }
                 });
