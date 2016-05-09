@@ -1,17 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#dfdfdf">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:background="@color/colorPrimary"
         android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
         android:gravity="center"
+        android:orientation="vertical"
         android:layout_height="match_parent">
-        <ImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            />
+
+
+        <LinearLayout
+            android:id="@+id/linear_splash_logo"
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/ic_search_white_48dp"/>
+            <TextView
+                android:textColor="#ffffff"
+                android:textSize="25sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="아싸라비아"/>
+
+        </LinearLayout>
+
+        <com.facebook.login.widget.LoginButton
+            android:layout_marginTop="100dp"
+            android:id="@+id/btn_splash_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+
     </LinearLayout>
+
 </LinearLayout>

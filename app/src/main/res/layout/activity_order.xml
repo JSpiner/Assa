@@ -8,14 +8,14 @@
 
     <ScrollView
         android:id="@+id/sv_order"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/layout_order"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/layout_order"
+            android:orientation="vertical">
 
-    </LinearLayout>
-</ScrollView>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

@@ -28,6 +28,7 @@
                 android:layout_marginTop="15dp"
                 android:textColor="#efefef"
                 android:textSize="25dp"
+                android:id="@+id/tv_drawer_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="SeongMin Jung"/>
